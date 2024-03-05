@@ -57,7 +57,7 @@ app.get("/marvel-api/:id/:password",(req,res) => {
                         id:obj.id,
                         name:obj.name,
                         description:obj.description,
-                        thumbnail:obj.thumbnail.path + obj.thumbnail.extension,
+                        thumbnail:obj.thumbnail.path.concat(".",obj.thumbnail.extension),
                         comics:obj.comics.items,
                         series:obj.series.items,
                         stories:obj.stories.items,
