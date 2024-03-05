@@ -18,8 +18,15 @@ app.get("/marvel-api/:password",(req,res) => {
         axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${time}&apikey=${apikey}&hash=${hash}`)
             .then(
                 (response) => {
+                    const data = response.data.data.results.map(obj => ({
+                        id:obj.id,
+                        name:obj.name,
+                        description:obj.description,
+                        thumbnail:obj.thumbnail.path + obj.thumbnail.extension,
+                    }))
+                    
                     res.status(200).send({
-                        result:response.data.data.results
+                        result:data
                     })
                 }
             )
@@ -33,7 +40,7 @@ app.get("/marvel-api/:password",(req,res) => {
     }else{
         res.status(403).send({
             message:"Invalido entrada de acesso a API"
-        })
+        }
     }
 
 })
@@ -46,8 +53,19 @@ app.get("/marvel-api/:id/:password",(req,res) => {
         axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${time}&apikey=${apikey}&hash=${hash}`)
             .then(
                 (response) => {
+                    const data = response.data.data.results.map(obj => ({
+                        id:obj.id,
+                        name:obj.name,
+                        description:obj.description,
+                        thumbnail:obj.thumbnail.path + obj.thumbnail.extension,
+                        comics:obj.comics.items,
+                        series:obj.series.items,
+                        stories:obj.stories.items,
+                        events:obj.events.items,
+                    }))
+
                     res.status(200).send({
-                        result:response
+                        result:data
                     })
                 }
             )
