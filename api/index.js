@@ -11,13 +11,6 @@ const hash = md5(time+secretKey+apikey);
 var app = express()
 app.listen(3800)
 
-app.get("/marvel-api",(req,res) => {
-    res.status(200).send({
-        message:process.env.PASSWORD_CONNECTION
-    })
-})
-
-
 app.get("/marvel-api/:password",(req,res) => {
     var password = req.params.password
 
