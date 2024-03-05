@@ -2,7 +2,7 @@ var md5 = require('md5');
 var express = require("express");
 
 const axios = require("axios");
-const time = Number(new Date());
+const time = 1000;
 
 const apikey = process.env.API_KEY
 const secretKey = process.env.SECRET_KEY
