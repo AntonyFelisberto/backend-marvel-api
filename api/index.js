@@ -22,7 +22,7 @@ app.get("/marvel-api/:password",(req,res) => {
                         id:obj.id,
                         name:obj.name,
                         description:obj.description,
-                        thumbnail:obj.thumbnail.path + obj.thumbnail.extension,
+                        thumbnail:obj.thumbnail.path.concat(".",obj.thumbnail.extension),
                     }))
                     
                     res.status(200).send({
