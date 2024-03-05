@@ -4,8 +4,8 @@ var express = require("express");
 const axios = require("axios");
 const time = Number(new Date());
 
-const apikey = "" //process.env.API_KEY
-const secretKey = "" //process.env.SECRET_KEY
+const apikey = process.env.API_KEY
+const secretKey = process.env.SECRET_KEY
 const hash = md5(time+secretKey+apikey);
 
 var app = express()
