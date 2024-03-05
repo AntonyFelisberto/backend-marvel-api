@@ -40,7 +40,7 @@ app.get("/marvel-api/:password",(req,res) => {
     }else{
         res.status(403).send({
             message:"Invalido entrada de acesso a API"
-        }
+        })
     }
 
 })
