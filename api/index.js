@@ -14,7 +14,7 @@ app.listen(3800)
 app.get("/marvel-api/:password",(req,res) => {
     var password = req.params.password
 
-    if("123" == password){
+    if(process.env.PASSWORD_CONNECTION == password){
         axios.get(`https://gateway.marvel.com:443/v1/public/characters?ts=${time}&apikey=${apikey}&hash=${hash}`)
             .then(
                 (response) => {
