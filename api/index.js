@@ -12,7 +12,9 @@ const hash = md5(time+secretKey+apikey);
 var app = express()
 
 app.use(cors({
-origin: 'https://frontend-marvel-inuuooo6u-antonyfelisberto.vercel.app'
+    origin: 'https://frontend-marvel-inuuooo6u-antonyfelisberto.vercel.app',
+    methods: ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE'],
+    allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Authorization', 'X-Requested-With']
 }));
 
 
