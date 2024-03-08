@@ -2,6 +2,7 @@ var md5 = require('md5');
 var express = require("express");
 
 const axios = require("axios");
+const cors = require('cors');
 const time = 1000;
 
 const apikey = process.env.API_KEY
@@ -9,6 +10,7 @@ const secretKey = process.env.SECRET_KEY
 const hash = md5(time+secretKey+apikey);
 
 var app = express()
+app.use(cors());
 app.listen(3800)
 
 app.get("/marvel-api/:password",(req,res) => {
