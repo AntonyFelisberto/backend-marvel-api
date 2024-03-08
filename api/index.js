@@ -17,7 +17,6 @@ app.use(cors({
     allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Authorization', 'X-Requested-With']
 }));
 
-
 app.listen(3800)
 
 app.get("/marvel-api/:password",(req,res) => {
