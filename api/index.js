@@ -10,7 +10,12 @@ const secretKey = process.env.SECRET_KEY
 const hash = md5(time+secretKey+apikey);
 
 var app = express()
-app.use(cors());
+
+app.use(cors({
+origin: 'https://frontend-marvel-inuuooo6u-antonyfelisberto.vercel.app'
+}));
+
+
 app.listen(3800)
 
 app.get("/marvel-api/:password",(req,res) => {
